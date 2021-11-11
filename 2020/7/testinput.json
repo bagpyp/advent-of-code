@@ -1,0 +1,58 @@
+[
+    {
+        "color": "light red",
+        "contains": {
+            "bright white": 1,
+            "muted yellow": 2
+        }
+    },
+    {
+        "color": "dark orange",
+        "contains": {
+            "bright white": 3,
+            "muted yellow": 4
+        }
+    },
+    {
+        "color": "bright white",
+        "contains": {
+            "shiny gold": 1
+        }
+    },
+    {
+        "color": "muted yellow",
+        "contains": {
+            "shiny gold": 2,
+            "faded blue": 9
+        }
+    },
+    {
+        "color": "shiny gold",
+        "contains": {
+            "dark olive": 1,
+            "vibrant plum": 2
+        }
+    },
+    {
+        "color": "dark olive",
+        "contains": {
+            "faded blue": 3,
+            "dotted black": 4
+        }
+    },
+    {
+        "color": "vibrant plum",
+        "contains": {
+            "faded blue": 5,
+            "dotted black": 6
+        }
+    },
+    {
+        "color": "faded blue",
+        "contains": {}
+    },
+    {
+        "color": "dotted black",
+        "contains": {}
+    }
+]

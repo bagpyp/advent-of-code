@@ -1,7 +1,7 @@
 #%%
 
 # build ops
-with open('input') as f:
+with open('testinput') as f:
     ops = [
         (
             i,
@@ -39,9 +39,3 @@ while True:
         acc += val
         i,(op,val) = ops[i+1]
 print(acc)
-
-
-
-# while len(done) == len(set(done)):
-
-# %%

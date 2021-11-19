@@ -1,7 +1,8 @@
 # %%
+
 import numpy as np
 
-with open('test') as f:
+with open('input') as f:
     gen = np.array([
         [int(c == '#') for c in list(l)] 
         for l in f.read().split()
@@ -69,6 +70,20 @@ for i in range(6):
 
 print(cube.arr.sum())
 
-# %%
+# %% PLOT
+
+import matplotlib.pyplot as plt
+
+def plot(arr):
+    fig = plt.figure()
+    ax = plt.axes(projection = '3d')
+    z, y, x = arr.nonzero()
+    ax.scatter(x, y, z)
+
+cube = Cube(gen)
+plot(cube.arr)
+for i in range(10):
+    cube = cube.cycle()
+    plot(cube.arr)
 
 # %%

@@ -1,5 +1,6 @@
 #%%
 
+from os import X_OK
 import numpy as np
 import pandas as pd
 import string
@@ -21,7 +22,7 @@ gamma = makeGamma(report)
 df = pd.DataFrame(
     report, 
     columns=list(
-        string.ascii_lowercase[:gamma.size]
+        string.axscii_lowercase[:gamma.size]
     )
 )
 
@@ -32,13 +33,33 @@ while len(df) > 1:
     i += 1
     gamma = makeGamma(df.values)
 
+oxygen = int(''.join([
+    str(x) 
+    for x in df.iloc[0].values
+]),2)
 
+df = pd.DataFrame(
+    report, 
+    columns=list(
+        string.ascii_lowercase[:gamma.size]
+    )
+)
 
+gamma = makeGamma(report)
 
+i = 0
+while len(df) > 1:
+    col = df.columns[i]
+    df = df[df[col]!=gamma[i]]
+    i += 1
+    gamma = makeGamma(df.values)
 
+c02 = int(''.join([
+    str(x) 
+    for x in df.iloc[0].values
+]),2)
 
-
-print(report[:5])
+print(oxygen * c02)
 # %%
 
 # %%

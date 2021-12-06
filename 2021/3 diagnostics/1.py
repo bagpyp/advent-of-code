@@ -7,7 +7,7 @@ with open('input') as f:
         for l in f.read().splitlines()
     ])
 
-gamma = [int(sum(arr)>arr.size/2) for arr in report.T]
+gamma = [int(sum(arr)>=arr.size/2) for arr in report.T]
 epsilon = [int(not g) for g in gamma]
 
 g = int(''.join([str(r) for r in gamma]),2)

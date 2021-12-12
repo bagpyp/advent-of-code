@@ -1,5 +1,5 @@
 #%%
-with open ('input') as f:
+with open ('testinput') as f:
     input = [int(l) for l in f.read().split(',')]
 
 class Fish:
@@ -26,11 +26,11 @@ class School:
     def count_fish(self):
         return len(self.fish)
 
-fish = [Fish(i) for i in input]
-school = School(fish)
+school = School([Fish(i) for i in input])
 
-for _ in range(80):
-    school.cycle()
+if __name__ == '__main__':
+    for _ in range(80):
+        school.cycle()
 
-print(school.count_fish())
+    print(school.count_fish())
 # %%

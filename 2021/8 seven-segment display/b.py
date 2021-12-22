@@ -78,7 +78,7 @@ class Signal:
     def __sub__(self, other):
         return ''.join([char for char in self.raw if char not in other.raw])
     def __repr__(self):
-        return f'{self.raw}\n{self.raw_display}\n{self.digital_display}\n{self.value}\n'
+        return f'\n{self.raw}\n{self.raw_display}\n{self.digital_display}\n{self.value}\n'
     def is_subset(self, other):
         return all([char in other.raw for char in self.raw])
     def intersection(self, other):
@@ -109,7 +109,7 @@ class SignalGroup:
                 signals.append(self.signals[i])
         return signals
     def __repr__(self):
-        return f"{self.map}\n{[s.value for s in self.signals]}\n{self.matrix}\n"
+        return f"\n{self.map}\n{[s.value for s in self.signals]}\n{self.matrix}\n"
     def decode(self):
         # for char, col_sum in {
         #     'f':9,
@@ -147,7 +147,13 @@ for note in notes:
     sg.decode()
     signals.append(int(''.join([str(n) for n in sg.decoded_signals])))
 
-print(sum(signals))
+sg = SignalGroup(note)
+print(sg.signals)
+sg.decode()
+print(sg)
+print(sg.decoded_signals)
+
+# print(sum(signals))
 
 # %%
 

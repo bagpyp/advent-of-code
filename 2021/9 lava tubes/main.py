@@ -2,7 +2,7 @@
 
 import numpy as np
 
-with open('input') as f:
+with open('testinput') as f:
     floor = np.array([
         [int(i) for i in list(j)] 
         for j in f.read().split()
@@ -30,8 +30,7 @@ for i in range(floor.shape[0]):
 
 print(lowPoints)
 
-        
-
+#%%
 
 
 def check_neighbors(p: tuple[int]) -> list[tuple[int]]:
@@ -51,14 +50,11 @@ def check_neighbors(p: tuple[int]) -> list[tuple[int]]:
             if P not in basin:
                 check_neighbors(P)
 
-
 def check_basin(basin):
     print(floor)
     arr = np.zeros(floor.shape)
     for p in basin:
         arr[p] = 1
-
-
 
 basins = []
 for lp in lowPoints:

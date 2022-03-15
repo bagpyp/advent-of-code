@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_solve(t *testing.T) {
+func Test_run(t *testing.T) {
 	type args struct {
 		program []int
 	}
@@ -45,8 +45,8 @@ func Test_solve(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := solve(tt.args.program); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("solve() = %v, want %v", got, tt.want)
+			if got := run(tt.args.program); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("run() = %v, want %v", got, tt.want)
 			}
 		})
 	}

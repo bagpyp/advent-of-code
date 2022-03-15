@@ -8,22 +8,44 @@ import (
 )
 
 func main() {
-	program := getInput("input")
-	program = sabatoge(program)
-	res := solve(program)
-	fmt.Println(res)
-}
-
-func solve(program []int) []int {
-	for i := range program {
-		if i%4 == 0 {
-			if program[i] == 99 {
-				return program
-			} else {
-				program = op(program, i)
+	for noun := 0; noun < 100; noun++ {
+		for verb := 0; verb < 100; verb++ {
+			program := getInput("input")
+			program[1], program[2] = noun, verb
+			programOutput := run(program)[0]
+			if noun == 12 && verb == 2 {
+				fmt.Println("a: ", programOutput)
+			} else if programOutput == 19690720 {
+				fmt.Println("b: ", noun * 100 + verb)
 			}
 		}
 	}
+}
+
+func run(program []int) []int {
+	i := 0
+	for i < len(program) {
+		if program[i] == 99 {
+			return program
+		}
+		program = op(program, i)
+		i += 4
+	}
+	return program
+}
+
+func op(program []int, pointer int) []int {
+	opCode := program[pointer]
+	p1 := program[program[pointer+1]]
+	p2 := program[program[pointer+2]]
+	outputAddress := program[pointer+3]
+	var output int
+	if opCode == 1 {
+		output = p1 + p2 
+	} else {
+		output = p1 * p2
+	}
+	program[outputAddress] = output
 	return program
 }
 
@@ -37,33 +59,4 @@ func getInput(fileName string) []int {
 		res = append(res, i)
 	}
 	return res
-}
-
-func op(program []int, pos int) []int {
-	var out []int
-	for i := range program {
-		out = append(out, program[i])
-	}
-
-	fmt.Println(out)
-	val := computation(program[program[pos+1]], program[program[pos+2]], program[pos])
-	out[program[pos+3]] = val
-
-	return out
-}
-
-func computation(a, b, computationType int) int {
-	if computationType == 1 {
-		return a + b
-	} else if computationType == 2 {
-		return a * b
-	} else {
-		return 0
-	}
-}
-
-func sabatoge(array []int) []int {
-	array[1] = 12
-	array[2] = 2
-	return array
 }

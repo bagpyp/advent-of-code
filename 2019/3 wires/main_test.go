@@ -59,7 +59,6 @@ func Test_computeSmallestDistance(t *testing.T) {
 	}
 }
 
-/* these fail even though i got my god damn gold star!!
 func Test_run(t *testing.T) {
 	type args struct {
 		input []string
@@ -77,7 +76,7 @@ func Test_run(t *testing.T) {
 					"U62,R66,U55,R34,D71,R55,D58,R83",
 				},
 			},
-			want: 610,
+			want: 159,
 		},
 		{
 			name: "run it again",
@@ -87,7 +86,7 @@ func Test_run(t *testing.T) {
 					"U98,R91,D20,R16,D67,R40,U7,R15,U6,R7",
 				},
 			},
-			want: 410,
+			want: 135,
 		},
 	}
 	for _, tt := range tests {
@@ -98,4 +97,3 @@ func Test_run(t *testing.T) {
 		})
 	}
 }
-*/
